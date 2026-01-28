@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  background: #f4f6f8;
+  font-family: sans-serif;
+}
+
+header {
+  background: linear-gradient(90deg, #0f172a, #020617);
+  color: white;
+  padding: 14px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background: #f59e0b;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.card {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin: 14px auto;
+  width: 600px;
+}
