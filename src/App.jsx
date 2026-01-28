@@ -30,6 +30,8 @@ export default function App() {
           </ProtectedRoute>
         }
       />
+
+      <Route path="*" element={<h1 className="text-center mt-10">404</h1>} />
     </Routes>
   );
 }
