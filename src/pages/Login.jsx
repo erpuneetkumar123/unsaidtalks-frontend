@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import api from "../api";
-
+import logo from "../assets/unsaid.png"; // ✅ logo import
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,8 +13,9 @@ export default function Login() {
       const res = await api.post("/auth/login", { email, password });
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("role", res.data.role);
-      if (res.data.role === "ADMIN") navigate("/admin"); else navigate("/dashboard");
-    } catch (err) {
+      if (res.data.role === "ADMIN") navigate("/admin");
+      else navigate("/dashboard");
+    } catch {
       alert("Invalid credentials");
     }
   };
@@ -23,7 +24,7 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-slate-700">
       <div className="w-[360px] bg-slate-900 text-white rounded-xl shadow-lg p-6">
         <div className="flex justify-center mb-4">
-          <img src="C:\Users\ASUS\OneDrive\Desktop\todo-app\frontend\UnsaidTalks Logo.png" alt="UnsaidTalks" className="h-10" />
+          <img src={logo} alt="UnsaidTalks" className="h-10 object-contain" />
         </div>
 
         <input
@@ -46,12 +47,18 @@ export default function Login() {
           <span>Show password</span>
         </div>
 
-        <button onClick={submit} className="w-full bg-amber-600 hover:bg-amber-700 transition p-2 rounded font-semibold">
+        <button
+          onClick={submit}
+          className="w-full bg-amber-600 hover:bg-amber-700 transition p-2 rounded font-semibold"
+        >
           Login
         </button>
 
         <p className="text-center text-sm mt-4">
-          New user? <Link to="/register" className="text-amber-400">Register</Link>
+          New user?{" "}
+          <Link to="/register" className="text-amber-400">
+            Register
+          </Link>
         </p>
       </div>
     </div>

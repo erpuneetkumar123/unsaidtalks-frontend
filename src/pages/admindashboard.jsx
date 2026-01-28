@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../api";
+import logo from "../assets/unsaid.png";
 
 export default function AdminDashboard() {
   const [tasks, setTasks] = useState([]);
@@ -46,8 +47,8 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-slate-200">
-      <div className="bg-slate-900 text-white px-6 py-4 flex justify-between">
-        <h2>Admin Dashboard</h2>
+      <div className="bg-slate-900 text-white px-6 py-4 flex justify-between items-center">
+        <img src={logo} alt="Logo" className="h-10" />
         <button
           className="bg-red-600 px-3 py-1 rounded"
           onClick={() => {
