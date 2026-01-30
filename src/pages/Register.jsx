@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import api from "../api";
-import logo from "../assets/unsaid.png"; // ✅ logo import
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -23,24 +22,22 @@ export default function Register() {
         password,
       });
 
-      alert("Registered successfully. Please verify email.");
+      alert(
+        "Registered successfully. Please verify email (check backend console)."
+      );
       navigate("/login");
     } catch (err) {
-      alert(err?.response?.data?.message || "Registration failed");
+      alert(
+        err?.response?.data?.message || "Registration failed"
+      );
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-700">
       <div className="w-[360px] bg-slate-900 text-white rounded-xl shadow-lg p-6">
-
-        {/* 🔥 LOGO */}
         <div className="flex justify-center mb-4">
-          <img
-            src={logo}
-            alt="UnsaidTalks"
-            className="h-10 object-contain"
-          />
+          <img src="C:\Users\ASUS\OneDrive\Desktop\todo-app\frontend\UnsaidTalks Logo.png" alt="UnsaidTalks" className="h-10" />
         </div>
 
         <input
@@ -66,11 +63,7 @@ export default function Register() {
         />
 
         <div className="flex items-center gap-2 mb-4 text-sm">
-          <input
-            type="checkbox"
-            checked={show}
-            onChange={() => setShow(!show)}
-          />
+          <input type="checkbox" onChange={() => setShow(!show)} />
           <span>Show password</span>
         </div>
 
@@ -91,3 +84,4 @@ export default function Register() {
     </div>
   );
 }
+
